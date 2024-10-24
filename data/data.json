@@ -1,0 +1,60 @@
+{
+  "personal_info": [
+    {
+      "title": "name",
+      "icon": "nf-oct-person_fill",
+      "icon_color": "sky",
+      "value": "Harold Manzano"
+    },
+    {
+      "title": "education",
+      "icon": "nf-fa-graduation_cap",
+      "icon_color": "green",
+      "value": "System Engineering"
+    },
+    {
+      "title": "mail",
+      "icon": "nf-md-mailbox",
+      "icon_color": "yellow",
+      "value": "hmanzano1012@gmail.com"
+    },
+    {
+      "title": "phone",
+      "icon": "nf-md-phone_classic",
+      "icon_color": "lavender",
+      "value": "503 7126 2384"
+    },
+    {
+      "title": "birthday",
+      "icon": "nf-fa-birthday_cake",
+      "icon_color": "blue",
+      "value": "March 1, 2000"
+    }
+  ],
+  "socials": [
+    {
+      "title": "github",
+      "icon": "nf-fa-github_alt",
+      "icon_color": "pink",
+      "value": "https://github.com/HManzano1012"
+    },
+    {
+      "title": "instagram",
+      "icon": "nf-md-instagram",
+      "icon_color": "red",
+      "value": "https://www.instagram.com/hmanzano1012/"
+    },
+    {
+      "title": "twitter",
+      "icon": "nf-fa-twitter_square",
+      "icon_color": "text",
+      "value": "https://x.com/hmanzano1012"
+    },
+    {
+      "title": "linkedin",
+      "icon": "nf-fa-linkedin_square",
+      "icon_color": "sapphire",
+      "value": "https://www.linkedin.com/in/harold-steve-manzano-154803145/"
+    }
+  ]
+}
