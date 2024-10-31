@@ -7,12 +7,12 @@ export const PersonalInfo = () => {
   const styleInfoText = {
     width: 60,
     display: "inline-block",
-    textAlign: "center",
+    alignItems: "center",
   };
   const personal_info = data.personal_info;
   const personal_social_media = data.socials;
 
-  const icon_colors = {
+  const icon_colors: { [key: string]: any } = {
     sky: flavors.macchiato.colors.sky.hex,
     green: flavors.macchiato.colors.green.hex,
     yellow: flavors.macchiato.colors.yellow.hex,
