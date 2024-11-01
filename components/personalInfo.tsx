@@ -9,6 +9,7 @@ export const PersonalInfo = () => {
     display: "inline-block",
     alignItems: "center",
   };
+
   const personal_info = data.personal_info;
   const personal_social_media = data.socials;
 
