@@ -1,4 +1,55 @@
 {
+  "palette": {
+    "latte": {
+      "rosewater": "rosewater",
+      "flamingo": "flamingo",
+      "pink": "pink",
+      "mauve": "mauve",
+      "red": "red",
+      "maroon": "maroon",
+      "peach": "peach",
+      "yellow": "yellow",
+      "green": "green",
+      "teal": "teal",
+      "sky": "sky",
+      "sapphire": "sapphire",
+      "blue": "blue",
+      "lavender": "lavender",
+      "accent": "lavender",
+      "base": "base",
+      "mantle": "mantle",
+      "crust": "crust",
+      "text": "text",
+      "subtext0": "subtext0",
+      "subtext1": "subtext1"
+    },
+    "macchiato": {
+      "rosewater": "rosewater",
+      "flamingo": "flamingo",
+      "pink": "pink",
+      "mauve": "mauve",
+      "red": "red",
+      "maroon": "maroon",
+      "peach": "peach",
+      "yellow": "yellow",
+      "green": "green",
+      "teal": "teal",
+      "sky": "sky",
+      "sapphire": "sapphire",
+      "blue": "blue",
+      "lavender": "lavender",
+      "accent": "lavender",
+      "base": "base",
+      "mantle": "mantle",
+      "crust": "crust",
+      "text": "text",
+      "subtext0": "subtext0",
+      "subtext1": "subtext1",
+      "surface0": "surface0",
+      "surface1": "surface1"
+    }
+  },
+
   "personal_info": [
     {
       "title": "name",
@@ -55,6 +106,114 @@
       "icon": "nf-fa-linkedin_square",
       "icon_color": "sapphire",
       "value": "https://www.linkedin.com/in/harold-steve-manzano-154803145/"
+    }
+  ],
+  "me_section": {
+    "about_me_text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. ",
+    "skills": [
+      {
+        "id": 1,
+        "label": "System design",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form"
+      },
+      {
+        "id": 2,
+        "label": "Database design",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form"
+      }
+    ]
+  },
+  "tecnology_section": [
+    {
+      "id": 1,
+      "name": "HTML",
+      "icon": "nf-fa-html5",
+      "level": "2",
+      "color": "peach"
+    },
+    {
+      "id": 2,
+      "name": "CSS",
+      "icon": "nf-dev-css3",
+      "level": "2",
+      "color": "blue"
+    },
+    {
+      "id": 3,
+      "name": "PHP",
+      "icon": "nf-seti-php",
+      "level": "2",
+      "color": "mauve"
+    },
+    {
+      "id": 4,
+      "name": "JavaScript",
+      "icon": "nf-seti-javascript",
+      "level": "2",
+      "color": "yellow"
+    },
+    {
+      "id": 5,
+      "name": "Python",
+      "icon": "nf-fae-python",
+      "level": "2",
+      "color": "yellow"
+    },
+    {
+      "id": 6,
+      "name": "Golang",
+      "icon": "nf-seti-go",
+      "level": "2",
+      "color": "sapphire"
+    },
+    {
+      "id": 7,
+      "name": "MySQL",
+      "icon": "nf-dev-mysql",
+      "level": "2",
+      "color": "sapphire"
+    },
+    {
+      "id": 8,
+      "name": "Postgres",
+      "icon": "nf-dev-postgresql",
+      "level": "2",
+      "color": "blue"
+    },
+    {
+      "id": 9,
+      "name": "MongoDB",
+      "icon": "nf-dev-mongodb",
+      "level": "2",
+      "color": "green"
+    },
+    {
+      "id": 10,
+      "name": "Codeigniter",
+      "icon": "nf-dev-codeigniter",
+      "level": "2",
+      "color": "peach"
+    },
+    {
+      "id": 11,
+      "name": "Laravel",
+      "icon": "nf-md-laravel",
+      "level": "2",
+      "color": "red"
+    },
+    {
+      "id": 12,
+      "name": "Tailwind",
+      "icon": "nf-md-tailwind",
+      "level": "2",
+      "color": "sapphire"
+    },
+    {
+      "id": 13,
+      "name": "Boostrap",
+      "icon": "nf-md-bootstrap",
+      "level": "2",
+      "color": "mauve"
     }
   ]
 }

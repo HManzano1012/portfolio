@@ -1,4 +1,3 @@
-import { flavors, flavorEntries, version } from "@catppuccin/palette";
 import Image from "next/image";
 import Link from "next/link";
 import data from "@/data/data.json";
@@ -13,50 +12,35 @@ export const PersonalInfo = () => {
   const personal_info = data.personal_info;
   const personal_social_media = data.socials;
 
-  const icon_colors: { [key: string]: any } = {
-    sky: flavors.macchiato.colors.sky.hex,
-    green: flavors.macchiato.colors.green.hex,
-    yellow: flavors.macchiato.colors.yellow.hex,
-    lavender: flavors.macchiato.colors.lavender.hex,
-    blue: flavors.macchiato.colors.blue.hex,
-    pink: flavors.macchiato.colors.pink.hex,
-    red: flavors.macchiato.colors.red.hex,
-    text: flavors.macchiato.colors.text.hex,
-    sapphire: flavors.macchiato.colors.sapphire.hex,
-  };
-
   return (
     <div
       style={{
-        fontSize: 20,
         position: "absolute",
         top: "50%",
         transform: "translateY(-50%)",
       }}
+      className="text-sm md:text-md lg:text-lg"
     >
       <Image
         src="/profile.jpg"
         width={200}
         height={200}
+        className="border-surface1"
         style={{
           maxWidth: 200,
           borderRadius: "50%",
           margin: "auto",
           overflow: "hidden",
           borderWidth: 5,
-          borderColor: "#303347",
         }}
         alt="Profile photo"
       />
 
       <div style={{ paddingTop: 50 }}>
         {personal_info.map((info) => (
-          <div key={info.title}>
-            <div style={styleInfoText}>
-              <span
-                className={info.icon}
-                style={{ color: icon_colors[info.icon_color] }}
-              ></span>
+          <div key={info.title} className="text-text">
+            <div style={styleInfoText} className={`text-${info.icon_color}`}>
+              <span className={`${info.icon} text-${info.icon_color}`}></span>
             </div>
             {info.value}
           </div>
@@ -72,8 +56,7 @@ export const PersonalInfo = () => {
             key={social_media.title}
           >
             <span
-              className={social_media.icon}
-              style={{ color: icon_colors[social_media.icon_color] }}
+              className={`${social_media.icon} text-${social_media.icon_color}`}
             ></span>
           </Link>
         ))}
