@@ -13,7 +13,7 @@ export const Portfolio = () => {
   ];
   return (
     <div>
-      <section className="p-8">
+      <section className="py-8">
         <Menu
           links={links}
           currentActive={currentActive}

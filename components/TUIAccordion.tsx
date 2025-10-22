@@ -29,7 +29,7 @@ export const TUIAccordion = () => {
     <div className="flex gap-4 max-h-[70vh]">
       {/* Left Panel - Experience List */}
       <div className="w-1/3 min-w-[300px]">
-        <div className="p-2 h-full overflow-y-auto">
+        <div className="p-2 h-full overflow-y-auto tui-scrollbar">
           <div className="text-lavender text-lg font-bold mb-4">
             ~/Experience
           </div>
@@ -49,7 +49,7 @@ export const TUIAccordion = () => {
                   <span className="font-mono text-sm flex-shrink-0">
                     [{item.id}] {item.period}
                   </span>
-                  <span className={`font-mono text-sm flex-shrink-0 ${
+                  <span className={`font-mono text-sm text-right ${
                     activeItem === item.id ? "text-base" : "text-green"
                   }`}>
                     {item.independent || item.company === "black" ? "-" : item.company}
@@ -63,7 +63,7 @@ export const TUIAccordion = () => {
 
       {/* Right Panel - Experience Details */}
       <div className="flex-1">
-        <div className="p-4 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-surface1 scrollbar-track-transparent">
+        <div className="p-4 h-full overflow-y-auto tui-scrollbar">
           {experienceData
             .filter((item) => item.id === activeItem)
             .map((item) => (

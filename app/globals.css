@@ -31,3 +31,32 @@ body {
     text-wrap: balance;
   }
 }
+
+/* TUI Style Scrollbar */
+.tui-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #6c7086 #24273a;
+}
+
+.tui-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tui-scrollbar::-webkit-scrollbar-track {
+  background: #24273a;
+  border-radius: 0;
+}
+
+.tui-scrollbar::-webkit-scrollbar-thumb {
+  background: #6c7086;
+  border-radius: 0;
+  border: 1px solid #24273a;
+}
+
+.tui-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8aadf4;
+}
+
+.tui-scrollbar::-webkit-scrollbar-corner {
+  background: #24273a;
+}
