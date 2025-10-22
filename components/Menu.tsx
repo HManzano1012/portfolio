@@ -1,3 +1,4 @@
+
 import ThemeSwitcher from "./ThemeSwitcher";
 
 export const Menu = (props) => {
@@ -27,6 +28,9 @@ export const Menu = (props) => {
               </li>
             ))}
           </ul>
+          <div className="mt-4 md:mt-0">
+            <ThemeSwitcher />
+          </div>
         </div>
       </div>
     </div>

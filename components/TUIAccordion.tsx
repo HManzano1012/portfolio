@@ -106,12 +106,11 @@ export const TUIAccordion = () => {
                   activeItem === item.id
                     ? "text-base"
                     : "hover:text-text text-subtext0"
+                } ${
+                  activeItem === item.id 
+                    ? (focusedPanel === "left" ? "bg-teal" : "bg-overlay0")
+                    : ""
                 }`}
-                style={{
-                  backgroundColor: activeItem === item.id 
-                    ? (focusedPanel === "left" ? "#8BD5CA" : "#8DA19C")
-                    : undefined
-                }}
                 onClick={() => {
                   setActiveItem(item.id);
                   // Reset scroll position when clicking accordion items
@@ -138,10 +137,7 @@ export const TUIAccordion = () => {
 
       {/* Right Panel - Experience Details */}
       <div 
-        className={`flex-1 ${focusedPanel === "right" ? "ring-1" : ""}`} 
-        style={{ 
-          '--tw-ring-color': focusedPanel === "right" ? "#494D64" : undefined 
-        } as React.CSSProperties}
+        className={`flex-1 ${focusedPanel === "right" ? "ring-1 ring-surface0" : ""}`}
       >
         <div ref={rightPanelRef} className="p-4 h-full overflow-y-auto tui-scrollbar">
           {experienceDataArray

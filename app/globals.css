@@ -20,7 +20,7 @@
 }
 
 body {
-  color: #cad3f5;
+  color: var(--ctp-sapphire);
   /* background: rgb(var(--background-color)); */
   font-family: "Victor Mono", "NerdFontsSymbols Nerd Font", "Fira Code", "JetBrains Mono", "Cascadia Code", monospace;
   font-weight: 600;
@@ -35,7 +35,7 @@ body {
 /* TUI Style Scrollbar */
 .tui-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #6c7086 #24273a;
+  scrollbar-color: var(--ctp-surface2) var(--ctp-base);
 }
 
 .tui-scrollbar::-webkit-scrollbar {
@@ -43,20 +43,20 @@ body {
 }
 
 .tui-scrollbar::-webkit-scrollbar-track {
-  background: #24273a;
+  background: var(--ctp-base);
   border-radius: 0;
 }
 
 .tui-scrollbar::-webkit-scrollbar-thumb {
-  background: #6c7086;
+  background: var(--ctp-surface2);
   border-radius: 0;
-  border: 1px solid #24273a;
+  border: 1px solid var(--ctp-base);
 }
 
 .tui-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #8aadf4;
+  background: var(--ctp-blue);
 }
 
 .tui-scrollbar::-webkit-scrollbar-corner {
-  background: #24273a;
+  background: var(--ctp-base);
 }
