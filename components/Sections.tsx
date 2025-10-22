@@ -1,4 +1,5 @@
 import { AboutMe } from "./sections/AboutMe";
+import { TUIAccordion } from "./TUIAccordion";
 
 export const Sections = (props) => {
   return (
@@ -7,7 +8,7 @@ export const Sections = (props) => {
         <AboutMe />
       </section>
       <section className={`${props.currentActive != 2 ? "hidden" : ""}`}>
-        ecperience
+        <TUIAccordion />
       </section>
       <section className={`${props.currentActive != 3 ? "hidden" : ""}`}>
         educations

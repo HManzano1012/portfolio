@@ -215,5 +215,85 @@
       "level": "2",
       "color": "mauve"
     }
+  ],
+  "experience_section": [
+    {
+      "id": "a",
+      "period": "Feb 2021 - Now",
+      "company": "MOOVIT",
+      "position": "Senior Software Engineer",
+      "description": "Leading development of core platform features and mentoring junior developers in a fast-paced startup environment.",
+      "active": true,
+      "independent": false,
+      "company_contact": {
+        "name": "Sarah Johnson",
+        "position": "HR Manager",
+        "email": "sarah.johnson@moovit.com",
+        "phone": "+1 (555) 123-4567"
+      },
+      "functions": [
+        "Document management – Design and development of a fully-featured document management system using Struts, Hibernate, Lucene and jBPM.",
+        "Justinmind incubator – Design and development of several products in their incubation stage, such as the Justinmind user management.",
+        "Generation core – Design and development of the application generation core in use in the Justinmind Usernote and Justinmind Prototyper."
+      ],
+      "achievements": [
+        "Improved system performance by 40% through database optimization",
+        "Led a team of 5 developers on the document management project",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ]
+    },
+    {
+      "id": "b", 
+      "period": "Jul 2019 - Sep 2020",
+      "company": "TECH CORP",
+      "position": "Full Stack Developer",
+      "description": "Developed and maintained web applications using modern technologies, focusing on user experience and performance optimization.",
+      "active": false,
+      "independent": false,
+      "company_contact": {
+        "name": "Michael Chen",
+        "position": "Tech Lead",
+        "email": "michael.chen@techcorp.com",
+        "phone": "+1 (555) 987-6543"
+      },
+      "functions": [
+        "Web application development using React and Node.js",
+        "Database design and optimization with PostgreSQL",
+        "API development and integration with third-party services",
+        "Code review and mentoring junior developers"
+      ],
+      "achievements": [
+        "Reduced page load time by 35% through code optimization",
+        "Implemented automated testing increasing code coverage to 85%",
+        "Designed and developed 3 major features from scratch"
+      ]
+    },
+    {
+      "id": "c",
+      "period": "Jan 2020 - Mar 2020",
+      "company": "Freelance Client",
+      "position": "Full Stack Developer",
+      "description": "Independent project developing a custom e-commerce solution for a local business, handling all aspects from design to deployment.",
+      "active": false,
+      "independent": true,
+      "company_contact": {
+        "name": "Maria Rodriguez",
+        "position": "Business Owner",
+        "email": "maria@localbusiness.com",
+        "phone": "+1 (555) 456-7890"
+      },
+      "functions": [
+        "Custom e-commerce platform development using Laravel and Vue.js",
+        "Payment gateway integration with Stripe and PayPal",
+        "Database design and optimization for high-traffic scenarios",
+        "Mobile-responsive design implementation",
+        "SEO optimization and performance tuning"
+      ],
+      "achievements": [
+        "Delivered project 2 weeks ahead of schedule",
+        "Achieved 99.9% uptime during peak shopping season",
+        "Increased client's online sales by 150%"
+      ]
+    }
   ]
 }

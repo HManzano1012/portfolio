@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import data from "@/data/data.json";
 
@@ -21,20 +20,17 @@ export const PersonalInfo = () => {
       }}
       className="text-sm md:text-md lg:text-lg"
     >
-      <Image
-        src="/profile.jpg"
-        width={200}
-        height={200}
+      <div
         className="border-surface1"
         style={{
-          maxWidth: 200,
+          width: 200,
+          height: 200,
           borderRadius: "50%",
           margin: "auto",
-          overflow: "hidden",
           borderWidth: 5,
+          borderStyle: "solid",
         }}
-        alt="Profile photo"
-      />
+      ></div>
 
       <div style={{ paddingTop: 50 }}>
         {personal_info.map((info) => (
