@@ -1,0 +1,26 @@
+[
+  {
+    "title": "github",
+    "icon": "nf-fa-github_alt",
+    "icon_color": "pink",
+    "value": "https://github.com/HManzano1012"
+  },
+  {
+    "title": "instagram",
+    "icon": "nf-md-instagram",
+    "icon_color": "red",
+    "value": "https://www.instagram.com/hmanzano1012/"
+  },
+  {
+    "title": "twitter",
+    "icon": "nf-fa-twitter_square",
+    "icon_color": "text",
+    "value": "https://x.com/hmanzano1012"
+  },
+  {
+    "title": "linkedin",
+    "icon": "nf-fa-linkedin_square",
+    "icon_color": "sapphire",
+    "value": "https://www.linkedin.com/in/harold-steve-manzano-154803145/"
+  }
+]

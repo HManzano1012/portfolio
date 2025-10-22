@@ -26,10 +26,10 @@ export const TUIAccordion = () => {
   const experienceData: ExperienceItem[] = data.experience_section;
 
   return (
-    <div className="flex gap-4 h-full">
+    <div className="flex gap-4 max-h-[70vh]">
       {/* Left Panel - Experience List */}
       <div className="w-1/3 min-w-[300px]">
-        <div className="p-2 h-full">
+        <div className="p-2 h-full overflow-y-auto">
           <div className="text-lavender text-lg font-bold mb-4">
             ~/Experience
           </div>
@@ -45,11 +45,11 @@ export const TUIAccordion = () => {
                 }`}
                 onClick={() => setActiveItem(item.id)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm">
+                <div className="flex items-center justify-between w-full">
+                  <span className="font-mono text-sm flex-shrink-0">
                     [{item.id}] {item.period}
                   </span>
-                  <span className={`font-mono text-sm ${
+                  <span className={`font-mono text-sm flex-shrink-0 ${
                     activeItem === item.id ? "text-base" : "text-green"
                   }`}>
                     {item.independent || item.company === "black" ? "-" : item.company}
@@ -63,7 +63,7 @@ export const TUIAccordion = () => {
 
       {/* Right Panel - Experience Details */}
       <div className="flex-1">
-        <div className="p-4 h-full">
+        <div className="p-4 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-surface1 scrollbar-track-transparent">
           {experienceData
             .filter((item) => item.id === activeItem)
             .map((item) => (

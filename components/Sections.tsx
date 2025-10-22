@@ -7,7 +7,7 @@ export const Sections = (props) => {
       <section className={`${props.currentActive != 1 ? "hidden" : ""}`}>
         <AboutMe />
       </section>
-      <section className={`${props.currentActive != 2 ? "hidden" : ""}`}>
+      <section className={`${props.currentActive != 2 ? "hidden" : ""} max-h-[70vh]`}>
         <TUIAccordion />
       </section>
       <section className={`${props.currentActive != 3 ? "hidden" : ""}`}>

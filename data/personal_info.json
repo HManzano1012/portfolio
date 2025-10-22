@@ -1,0 +1,32 @@
+[
+  {
+    "title": "name",
+    "icon": "nf-oct-person_fill",
+    "icon_color": "sky",
+    "value": "Harold Manzano"
+  },
+  {
+    "title": "education",
+    "icon": "nf-fa-graduation_cap",
+    "icon_color": "green",
+    "value": "System Engineering"
+  },
+  {
+    "title": "mail",
+    "icon": "nf-md-mailbox",
+    "icon_color": "yellow",
+    "value": "hmanzano1012@gmail.com"
+  },
+  {
+    "title": "phone",
+    "icon": "nf-md-phone_classic",
+    "icon_color": "lavender",
+    "value": "503 7126 2384"
+  },
+  {
+    "title": "birthday",
+    "icon": "nf-fa-birthday_cake",
+    "icon_color": "blue",
+    "value": "March 1, 2000"
+  }
+]
