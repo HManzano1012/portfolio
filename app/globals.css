@@ -22,7 +22,7 @@
 body {
   color: #cad3f5;
   /* background: rgb(var(--background-color)); */
-  font-family: "Victor Mono", "NerdFontsSymbols Nerd Font";
+  font-family: "Victor Mono", "NerdFontsSymbols Nerd Font", "Fira Code", "JetBrains Mono", "Cascadia Code", monospace;
   font-weight: 600;
 }
 

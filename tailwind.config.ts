@@ -9,6 +9,9 @@ const config: Config = {
   safelist: [{ pattern: /text-./ }, { pattern: /border-./ }],
   theme: {
     extend: {
+      fontFamily: {
+        'mono': ['"Victor Mono"', '"NerdFontsSymbols Nerd Font"', '"Fira Code"', '"JetBrains Mono"', '"Cascadia Code"', 'monospace'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
