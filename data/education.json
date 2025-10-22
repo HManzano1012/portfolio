@@ -1,0 +1,62 @@
+[
+  {
+    "id": "a",
+    "period": "2023",
+    "issuer": "Google",
+    "certificate_name": "Google Cloud Professional Developer",
+    "type": "certificate",
+    "description": "Comprehensive certification covering Google Cloud Platform services, including App Engine, Cloud Functions, Kubernetes Engine, and data analytics solutions.",
+    "status": "completed",
+    "certificate_url": "https://example.com/certificate.pdf",
+    "course_url": "https://cloud.google.com/certification/cloud-developer",
+    "active": true
+  },
+  {
+    "id": "b",
+    "period": "2022",
+    "issuer": "AWS",
+    "certificate_name": "AWS Solutions Architect Associate",
+    "type": "certificate",
+    "description": "Professional certification demonstrating expertise in designing distributed systems on AWS platform, including compute, storage, networking, and security services.",
+    "status": "completed",
+    "certificate_url": "https://example.com/aws-cert.pdf",
+    "course_url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+    "active": false
+  },
+  {
+    "id": "c",
+    "period": "2021",
+    "issuer": "Coursera",
+    "certificate_name": "Machine Learning Specialization",
+    "type": "course",
+    "description": "In-depth course covering supervised and unsupervised learning, neural networks, deep learning, and practical applications using Python and TensorFlow.",
+    "status": "completed",
+    "certificate_url": "",
+    "course_url": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "active": false
+  },
+  {
+    "id": "d",
+    "period": "2018 - 2022",
+    "issuer": "University of Technology",
+    "certificate_name": "Bachelor of Science in Computer Science",
+    "type": "university diploma",
+    "description": "Four-year undergraduate program covering computer science fundamentals, software engineering, algorithms, data structures, and computer systems.",
+    "status": "completed",
+    "certificate_url": "",
+    "course_url": "",
+    "active": false
+  },
+  {
+    "id": "e",
+    "period": "2024",
+    "issuer": "Microsoft",
+    "certificate_name": "Azure Solutions Architect Expert",
+    "type": "certificate",
+    "description": "Advanced certification for designing and implementing solutions on Microsoft Azure platform, including cloud architecture patterns and best practices.",
+    "status": "in progress",
+    "certificate_url": "",
+    "course_url": "https://docs.microsoft.com/en-us/learn/certifications/azure-solutions-architect/",
+    "active": false
+  }
+]

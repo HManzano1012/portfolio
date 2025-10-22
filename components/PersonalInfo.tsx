@@ -1,5 +1,6 @@
 import Link from "next/link";
-import data from "@/data/data.json";
+import personalInfo from "@/data/personal_info.json";
+import socials from "@/data/socials.json";
 
 export const PersonalInfo = () => {
   const styleInfoText = {
@@ -8,8 +9,8 @@ export const PersonalInfo = () => {
     alignItems: "center",
   };
 
-  const personal_info = data.personal_info;
-  const personal_social_media = data.socials;
+  const personal_info = personalInfo;
+  const personal_social_media = socials;
 
   return (
     <div

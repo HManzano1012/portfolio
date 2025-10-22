@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import data from "@/data/data.json";
+import experienceData from "@/data/experience.json";
 
 interface ExperienceItem {
   id: string;
@@ -23,7 +23,7 @@ interface ExperienceItem {
 
 export const TUIAccordion = () => {
   const [activeItem, setActiveItem] = useState<string>("a");
-  const experienceData: ExperienceItem[] = data.experience_section;
+  const experienceDataArray: ExperienceItem[] = experienceData;
 
   return (
     <div className="flex gap-4 max-h-[70vh]">
@@ -35,7 +35,7 @@ export const TUIAccordion = () => {
           </div>
           
           <div className="space-y-1">
-            {experienceData.map((item) => (
+            {experienceDataArray.map((item) => (
               <div
                 key={item.id}
                 className={`cursor-pointer p-2 transition-all duration-200 ${
@@ -64,7 +64,7 @@ export const TUIAccordion = () => {
       {/* Right Panel - Experience Details */}
       <div className="flex-1">
         <div className="p-4 h-full overflow-y-auto tui-scrollbar">
-          {experienceData
+          {experienceDataArray
             .filter((item) => item.id === activeItem)
             .map((item) => (
               <div key={item.id} className="space-y-3">

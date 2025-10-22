@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "name": "HTML",
+    "icon": "nf-fa-html5",
+    "level": "2",
+    "color": "peach"
+  },
+  {
+    "id": 2,
+    "name": "CSS",
+    "icon": "nf-dev-css3",
+    "level": "2",
+    "color": "blue"
+  },
+  {
+    "id": 3,
+    "name": "PHP",
+    "icon": "nf-seti-php",
+    "level": "2",
+    "color": "mauve"
+  },
+  {
+    "id": 4,
+    "name": "JavaScript",
+    "icon": "nf-seti-javascript",
+    "level": "2",
+    "color": "yellow"
+  },
+  {
+    "id": 5,
+    "name": "Python",
+    "icon": "nf-fae-python",
+    "level": "2",
+    "color": "yellow"
+  },
+  {
+    "id": 6,
+    "name": "Golang",
+    "icon": "nf-seti-go",
+    "level": "2",
+    "color": "sapphire"
+  },
+  {
+    "id": 7,
+    "name": "MySQL",
+    "icon": "nf-dev-mysql",
+    "level": "2",
+    "color": "sapphire"
+  },
+  {
+    "id": 8,
+    "name": "Postgres",
+    "icon": "nf-dev-postgresql",
+    "level": "2",
+    "color": "blue"
+  },
+  {
+    "id": 9,
+    "name": "MongoDB",
+    "icon": "nf-dev-mongodb",
+    "level": "2",
+    "color": "green"
+  },
+  {
+    "id": 10,
+    "name": "Codeigniter",
+    "icon": "nf-dev-codeigniter",
+    "level": "2",
+    "color": "peach"
+  },
+  {
+    "id": 11,
+    "name": "Laravel",
+    "icon": "nf-md-laravel",
+    "level": "2",
+    "color": "red"
+  },
+  {
+    "id": 12,
+    "name": "Tailwind",
+    "icon": "nf-md-tailwind",
+    "level": "2",
+    "color": "sapphire"
+  },
+  {
+    "id": 13,
+    "name": "Boostrap",
+    "icon": "nf-md-bootstrap",
+    "level": "2",
+    "color": "mauve"
+  }
+]

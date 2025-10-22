@@ -1,9 +1,10 @@
-import data from "@/data/data.json";
+import aboutMe from "@/data/about_me.json";
+import technologies from "@/data/technologies.json";
 
 export const AboutMe = () => {
-  const about_me_text = data.me_section.about_me_text;
-  const skill_knowledge = data.me_section.skills;
-  const technologies = data.tecnology_section;
+  const about_me_text = aboutMe.about_me_text;
+  const skill_knowledge = aboutMe.skills;
+  const technologiesData = technologies;
 
   return (
     <div>
@@ -31,7 +32,7 @@ export const AboutMe = () => {
         ~/Technology
       </span>
       <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4  text-sm md:text-md xl:text-lg py-2 xl-py-7 ">
-        {technologies.map((technology) => (
+        {technologiesData.map((technology) => (
           <div key={technology.id} className="py-1">
             <div className="text-subtext1">
               <span
