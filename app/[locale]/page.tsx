@@ -16,7 +16,7 @@ export default function Home() {
       </div>
       {/* Help indicator */}
       <div className="absolute bottom-9 left-9 text-xs font-mono text-subtext0">
-        help: ? , themes: shift+t
+        help: ?, themes: shift+t
       </div>
       
       {/* Help Modal */}
