@@ -1,10 +1,12 @@
 "use client";
 import { Menu } from "./Menu";
 import { Sections } from "./Sections";
+import { AccordionProvider, useAccordion } from "./contexts/AccordionContext";
 import { useState, useEffect } from "react";
 
-export const Portfolio = () => {
+const PortfolioContent = () => {
   const [currentActive, setCurrentActive] = useState(1);
+  const { resetFocusedPanel } = useAccordion();
   const links = [
     { id: 1, text: "[1] ~/Me" },
     { id: 2, text: "[2] ~/Experience" },
@@ -31,6 +33,9 @@ export const Portfolio = () => {
             return newIndex > links.length ? 1 : newIndex;
           });
         }
+        
+        // Reset focused panel when changing sections
+        resetFocusedPanel();
       }
     };
 
@@ -41,7 +46,7 @@ export const Portfolio = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [links.length]);
+  }, [links.length, resetFocusedPanel]);
 
   return (
     <div>
@@ -54,5 +59,13 @@ export const Portfolio = () => {
         <Sections currentActive={currentActive} />
       </section>
     </div>
+  );
+};
+
+export const Portfolio = () => {
+  return (
+    <AccordionProvider>
+      <PortfolioContent />
+    </AccordionProvider>
   );
 };

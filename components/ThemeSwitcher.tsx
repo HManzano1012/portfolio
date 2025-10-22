@@ -93,11 +93,11 @@ export default function ThemeSwitcher() {
           />
           
           {/* TUI Modal */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="bg-base border border-green w-full max-w-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" data-theme-modal>
+            <div className="bg-base border border-lavender w-full max-w-md">
               {/* Header */}
-              <div className="px-4 py-3 border-b border-green bg-base">
-                <div className="flex items-center gap-2 text-sm font-mono text-green">
+              <div className="px-4 py-3 border-b border-lavender bg-base">
+                <div className="flex items-center gap-2 text-sm font-mono text-lavender">
                   <span className="nf-md-palette"></span>
                   <span>themes</span>
                 </div>
@@ -128,7 +128,7 @@ export default function ThemeSwitcher() {
               </div>
               
               {/* Footer */}
-              <div className="px-4 py-3 border-t border-green bg-base">
+              <div className="px-4 py-3 border-t border-lavender bg-base">
                 <div className="text-xs font-mono text-subtext0">
                   <span className="text-green">{'>'}</span> <span className="text-lavender">j/k</span> navigate, <span className="text-lavender">enter</span> select, <span className="text-lavender">esc</span> close
                 </div>

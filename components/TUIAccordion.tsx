@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import experienceData from "@/data/experience.json";
+import { useAccordion } from "./contexts/AccordionContext";
 
 interface ExperienceItem {
   id: string;
@@ -23,13 +24,25 @@ interface ExperienceItem {
 
 export const TUIAccordion = () => {
   const [activeItem, setActiveItem] = useState<string>("a");
-  const [focusedPanel, setFocusedPanel] = useState<"left" | "right">("left");
+  const { focusedPanel, setFocusedPanel } = useAccordion();
   const experienceDataArray: ExperienceItem[] = experienceData;
   const rightPanelRef = React.useRef<HTMLDivElement>(null);
 
   // Keyboard navigation for accordion
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if theme selector is open
+      const themeModal = document.querySelector('[data-theme-modal]');
+      if (themeModal) {
+        return; // Don't process keyboard events if theme modal is open
+      }
+
+      // Check if help modal is open
+      const helpModal = document.querySelector('[data-help-modal]');
+      if (helpModal) {
+        return; // Don't process keyboard events if help modal is open
+      }
+
       // Check if we're in an input field or textarea
       if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
         return;
@@ -37,7 +50,7 @@ export const TUIAccordion = () => {
 
       const currentIndex = experienceDataArray.findIndex(item => item.id === activeItem);
       
-      if (event.key === "j" || (event.ctrlKey && event.key === "n")) {
+      if (event.key === "j" || event.key === "ArrowDown" || (event.ctrlKey && event.key === "n")) {
         event.preventDefault();
         if (focusedPanel === "right" && rightPanelRef.current) {
           // Scroll down in the right panel
@@ -53,7 +66,7 @@ export const TUIAccordion = () => {
             }
           }
         }
-      } else if (event.key === "k" || (event.ctrlKey && event.key === "p")) {
+      } else if (event.key === "k" || event.key === "ArrowUp" || (event.ctrlKey && event.key === "p")) {
         event.preventDefault();
         if (focusedPanel === "right" && rightPanelRef.current) {
           // Scroll up in the right panel
@@ -69,11 +82,11 @@ export const TUIAccordion = () => {
             }
           }
         }
-      } else if (event.key === "h") {
+      } else if (event.key === "h" || event.key === "ArrowLeft") {
         event.preventDefault();
         // Move to left panel (headers)
         setFocusedPanel("left");
-      } else if (event.key === "l") {
+      } else if (event.key === "l" || event.key === "ArrowRight") {
         event.preventDefault();
         // Move to right panel (body)
         setFocusedPanel("right");
