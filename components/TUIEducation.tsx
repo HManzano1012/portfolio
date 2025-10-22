@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import educationData from "@/data/education.json";
 
 interface EducationItem {
@@ -18,7 +18,71 @@ interface EducationItem {
 
 export const TUIEducation = () => {
   const [activeItem, setActiveItem] = useState<string>("a");
+  const [focusedPanel, setFocusedPanel] = useState<"left" | "right">("left");
   const educationDataArray: EducationItem[] = educationData;
+  const rightPanelRef = React.useRef<HTMLDivElement>(null);
+
+  // Keyboard navigation for accordion
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if we're in an input field or textarea
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      const currentIndex = educationDataArray.findIndex(item => item.id === activeItem);
+      
+      if (event.key === "j" || (event.ctrlKey && event.key === "n")) {
+        event.preventDefault();
+        if (focusedPanel === "right" && rightPanelRef.current) {
+          // Scroll down in the right panel
+          rightPanelRef.current.scrollBy({ top: 50, behavior: 'smooth' });
+        } else {
+          // Move down to next accordion item
+          const nextIndex = currentIndex + 1;
+          if (nextIndex < educationDataArray.length) {
+            setActiveItem(educationDataArray[nextIndex].id);
+            // Reset scroll position when changing accordion items
+            if (rightPanelRef.current) {
+              rightPanelRef.current.scrollTop = 0;
+            }
+          }
+        }
+      } else if (event.key === "k" || (event.ctrlKey && event.key === "p")) {
+        event.preventDefault();
+        if (focusedPanel === "right" && rightPanelRef.current) {
+          // Scroll up in the right panel
+          rightPanelRef.current.scrollBy({ top: -50, behavior: 'smooth' });
+        } else {
+          // Move up to previous accordion item
+          const prevIndex = currentIndex - 1;
+          if (prevIndex >= 0) {
+            setActiveItem(educationDataArray[prevIndex].id);
+            // Reset scroll position when changing accordion items
+            if (rightPanelRef.current) {
+              rightPanelRef.current.scrollTop = 0;
+            }
+          }
+        }
+      } else if (event.key === "h") {
+        event.preventDefault();
+        // Move to left panel (headers)
+        setFocusedPanel("left");
+      } else if (event.key === "l") {
+        event.preventDefault();
+        // Move to right panel (body)
+        setFocusedPanel("right");
+      }
+    };
+
+    // Add event listener
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeItem, educationDataArray, focusedPanel]);
 
   return (
     <div className="flex gap-4 max-h-[70vh]">
@@ -35,10 +99,21 @@ export const TUIEducation = () => {
                 key={item.id}
                 className={`cursor-pointer p-2 transition-all duration-200 ${
                   activeItem === item.id
-                    ? "bg-teal text-base"
+                    ? "text-base"
                     : "hover:text-text text-subtext0"
                 }`}
-                onClick={() => setActiveItem(item.id)}
+                style={{
+                  backgroundColor: activeItem === item.id 
+                    ? (focusedPanel === "left" ? "#8BD5CA" : "#8DA19C")
+                    : undefined
+                }}
+                onClick={() => {
+                  setActiveItem(item.id);
+                  // Reset scroll position when clicking accordion items
+                  if (rightPanelRef.current) {
+                    rightPanelRef.current.scrollTop = 0;
+                  }
+                }}
               >
                 <div className="flex items-center justify-between w-full">
                   <span className="font-mono text-sm flex-shrink-0">
@@ -57,8 +132,13 @@ export const TUIEducation = () => {
       </div>
 
       {/* Right Panel - Education Details */}
-      <div className="flex-1">
-        <div className="p-4 h-full overflow-y-auto tui-scrollbar">
+      <div 
+        className={`flex-1 ${focusedPanel === "right" ? "ring-1" : ""}`} 
+        style={{ 
+          '--tw-ring-color': focusedPanel === "right" ? "#494D64" : undefined 
+        } as React.CSSProperties}
+      >
+        <div ref={rightPanelRef} className="p-4 h-full overflow-y-auto tui-scrollbar">
           {educationDataArray
             .filter((item) => item.id === activeItem)
             .map((item) => (
