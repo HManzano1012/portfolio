@@ -110,9 +110,18 @@ export default function ThemeSwitcher() {
             <div className="bg-base border border-lavender w-full max-w-full lg:max-w-md">
               {/* Header */}
               <div className="px-4 py-3 border-b border-lavender bg-base">
-                <div className="flex items-center gap-2 text-sm font-mono text-lavender">
-                  <span className="nf-md-palette"></span>
-                  <span>themes</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-sm font-mono text-lavender">
+                    <span className="nf-md-palette"></span>
+                    <span>themes</span>
+                  </div>
+                  {/* Mobile close button */}
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="lg:hidden text-lavender hover:text-text transition-colors"
+                  >
+                    <span className="nf-md-close text-lg"></span>
+                  </button>
                 </div>
               </div>
               
@@ -141,7 +150,7 @@ export default function ThemeSwitcher() {
               </div>
               
               {/* Footer */}
-              <div className="px-4 py-3 border-t border-lavender bg-base">
+              <div className="hidden lg:block px-4 py-3 border-t border-lavender bg-base">
                 <div className="text-xs font-mono text-subtext0">
                   <span className="text-green">{'>'}</span> <span className="text-lavender">j/k</span> navigate, <span className="text-lavender">enter</span> select, <span className="text-lavender">esc</span> close
                 </div>

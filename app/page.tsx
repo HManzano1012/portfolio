@@ -1,6 +1,9 @@
+"use client";
+
 import { PersonalInfo } from "@/components/PersonalInfo";
 import { Portfolio } from "@/components/Portfolio";
 import HelpModal from "@/components/HelpModal";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Home() {
   return (
@@ -19,8 +22,24 @@ export default function Home() {
         help: ? , themes: shift+t
       </div>
       
+      {/* Mobile theme switcher */}
+      <div className="lg:hidden fixed top-4 right-4 z-40">
+        <button 
+          className="bg-base border border-lavender text-lavender px-3 py-2 font-mono text-sm hover:bg-surface1 transition-colors"
+          onClick={() => {
+            // Trigger theme switcher modal
+            const event = new KeyboardEvent('keydown', { key: 'T', shiftKey: true });
+            window.dispatchEvent(event);
+          }}
+        >
+          themes
+        </button>
+      </div>
+      
       {/* Help Modal */}
       <HelpModal />
+      {/* Theme Switcher */}
+      <ThemeSwitcher />
     </main>
   );
 }
