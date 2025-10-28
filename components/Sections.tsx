@@ -1,6 +1,7 @@
 import { AboutMe } from "./sections/AboutMe";
 import { TUIAccordion } from "./TUIAccordion";
 import { TUIEducation } from "./TUIEducation";
+import { TUIProjects } from "./TUIProjects";
 
 export const Sections = (props) => {
   return (
@@ -14,8 +15,8 @@ export const Sections = (props) => {
       <section className={`${props.currentActive != 3 ? "hidden" : ""} max-h-[70vh]`}>
         <TUIEducation />
       </section>
-      <section className={`${props.currentActive != 4 ? "hidden" : ""}`}>
-        proyext
+      <section className={`${props.currentActive != 4 ? "hidden" : ""} max-h-[70vh]`}>
+        <TUIProjects />
       </section>
     </div>
   );

@@ -1,0 +1,178 @@
+[
+  {
+    "id": "a",
+    "name": "Portfolio Website",
+    "repository": "https://github.com/HManzano1012/portfolio",
+    "description": "A modern, responsive portfolio website built with Next.js and React, featuring a terminal-inspired UI design with theme switching capabilities.",
+    "technologies": [
+      {
+        "id": 4,
+        "name": "JavaScript",
+        "icon": "nf-seti-javascript",
+        "level": "2",
+        "color": "yellow"
+      },
+      {
+        "id": 12,
+        "name": "Tailwind",
+        "icon": "nf-md-tailwind",
+        "level": "2",
+        "color": "sapphire"
+      },
+      {
+        "id": 1,
+        "name": "HTML",
+        "icon": "nf-fa-html5",
+        "level": "2",
+        "color": "peach"
+      },
+      {
+        "id": 2,
+        "name": "CSS",
+        "icon": "nf-dev-css3",
+        "level": "2",
+        "color": "blue"
+      }
+    ],
+    "features": [
+      "Terminal-inspired user interface design",
+      "Multiple theme support with Catppuccin color palettes",
+      "Keyboard navigation for accessibility",
+      "Responsive design for all screen sizes",
+      "Accordion-based content organization"
+    ],
+    "status": "completed",
+    "demo_url": "https://hmanzano1012.dev"
+  },
+  {
+    "id": "b",
+    "name": "E-commerce Platform",
+    "repository": "https://github.com/HManzano1012/ecommerce-platform",
+    "description": "A full-stack e-commerce solution with user authentication, product management, shopping cart, and payment integration.",
+    "technologies": [
+      {
+        "id": 11,
+        "name": "Laravel",
+        "icon": "nf-md-laravel",
+        "level": "2",
+        "color": "red"
+      },
+      {
+        "id": 4,
+        "name": "JavaScript",
+        "icon": "nf-seti-javascript",
+        "level": "2",
+        "color": "yellow"
+      },
+      {
+        "id": 7,
+        "name": "MySQL",
+        "icon": "nf-dev-mysql",
+        "level": "2",
+        "color": "sapphire"
+      },
+      {
+        "id": 12,
+        "name": "Tailwind",
+        "icon": "nf-md-tailwind",
+        "level": "2",
+        "color": "sapphire"
+      }
+    ],
+    "features": [
+      "User authentication and authorization",
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout process",
+      "Payment gateway integration",
+      "Admin dashboard for inventory management",
+      "Order tracking and history"
+    ],
+    "status": "completed",
+    "demo_url": "https://demo-ecommerce.hmanzano1012.dev"
+  },
+  {
+    "id": "c",
+    "name": "Task Management API",
+    "repository": "https://github.com/HManzano1012/task-management-api",
+    "description": "A RESTful API for task management with real-time collaboration features, built with Go and PostgreSQL.",
+    "technologies": [
+      {
+        "id": 6,
+        "name": "Golang",
+        "icon": "nf-seti-go",
+        "level": "2",
+        "color": "sapphire"
+      },
+      {
+        "id": 8,
+        "name": "Postgres",
+        "icon": "nf-dev-postgresql",
+        "level": "2",
+        "color": "blue"
+      },
+      {
+        "id": 9,
+        "name": "MongoDB",
+        "icon": "nf-dev-mongodb",
+        "level": "2",
+        "color": "green"
+      }
+    ],
+    "features": [
+      "RESTful API with comprehensive CRUD operations",
+      "Real-time task updates using WebSockets",
+      "User authentication with JWT tokens",
+      "Team collaboration and task assignment",
+      "File attachments and comments",
+      "Comprehensive API documentation"
+    ],
+    "status": "in progress",
+    "demo_url": ""
+  },
+  {
+    "id": "d",
+    "name": "Data Analytics Dashboard",
+    "repository": "https://github.com/HManzano1012/analytics-dashboard",
+    "description": "An interactive dashboard for data visualization and analytics, featuring real-time charts and customizable reports.",
+    "technologies": [
+      {
+        "id": 5,
+        "name": "Python",
+        "icon": "nf-fae-python",
+        "level": "2",
+        "color": "yellow"
+      },
+      {
+        "id": 4,
+        "name": "JavaScript",
+        "icon": "nf-seti-javascript",
+        "level": "2",
+        "color": "yellow"
+      },
+      {
+        "id": 8,
+        "name": "Postgres",
+        "icon": "nf-dev-postgresql",
+        "level": "2",
+        "color": "blue"
+      },
+      {
+        "id": 12,
+        "name": "Tailwind",
+        "icon": "nf-md-tailwind",
+        "level": "2",
+        "color": "sapphire"
+      }
+    ],
+    "features": [
+      "Interactive data visualization with Chart.js",
+      "Real-time data updates and live charts",
+      "Customizable dashboard layouts",
+      "Export functionality for reports",
+      "User role-based access control",
+      "Data filtering and search capabilities"
+    ],
+    "status": "completed",
+    "demo_url": "https://analytics-demo.hmanzano1012.dev"
+  }
+]

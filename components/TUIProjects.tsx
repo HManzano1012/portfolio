@@ -1,31 +1,32 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import experienceData from "@/data/experience.json";
+import projectsData from "@/data/projects.json";
 import { useAccordion } from "./contexts/AccordionContext";
 
-interface ExperienceItem {
-  id: string;
-  period: string;
-  company: string;
-  position: string;
-  description: string;
-  active: boolean;
-  independent: boolean;
-  company_contact?: {
-    name: string;
-    position: string;
-    email: string;
-    phone: string;
-  };
-  functions: string[];
-  achievements: string[];
+interface Technology {
+  id: number;
+  name: string;
+  icon: string;
+  level: string;
+  color: string;
 }
 
-export const TUIAccordion = () => {
+interface ProjectItem {
+  id: string;
+  name: string;
+  repository: string;
+  description: string;
+  technologies: Technology[];
+  features: string[];
+  status: string;
+  demo_url?: string;
+}
+
+export const TUIProjects = () => {
   const [activeItem, setActiveItem] = useState<string>("a");
   const { focusedPanel, setFocusedPanel } = useAccordion();
-  const experienceDataArray: ExperienceItem[] = experienceData;
+  const projectsDataArray: ProjectItem[] = projectsData;
   const rightPanelRef = React.useRef<HTMLDivElement>(null);
 
   // Keyboard navigation for accordion
@@ -48,7 +49,7 @@ export const TUIAccordion = () => {
         return;
       }
 
-      const currentIndex = experienceDataArray.findIndex(item => item.id === activeItem);
+      const currentIndex = projectsDataArray.findIndex(item => item.id === activeItem);
       
       if (event.key === "j" || event.key === "ArrowDown" || (event.ctrlKey && event.key === "n")) {
         event.preventDefault();
@@ -58,8 +59,8 @@ export const TUIAccordion = () => {
         } else {
           // Move down to next accordion item
           const nextIndex = currentIndex + 1;
-          if (nextIndex < experienceDataArray.length) {
-            setActiveItem(experienceDataArray[nextIndex].id);
+          if (nextIndex < projectsDataArray.length) {
+            setActiveItem(projectsDataArray[nextIndex].id);
             // Reset scroll position when changing accordion items
             if (rightPanelRef.current) {
               rightPanelRef.current.scrollTop = 0;
@@ -75,7 +76,7 @@ export const TUIAccordion = () => {
           // Move up to previous accordion item
           const prevIndex = currentIndex - 1;
           if (prevIndex >= 0) {
-            setActiveItem(experienceDataArray[prevIndex].id);
+            setActiveItem(projectsDataArray[prevIndex].id);
             // Reset scroll position when changing accordion items
             if (rightPanelRef.current) {
               rightPanelRef.current.scrollTop = 0;
@@ -100,19 +101,19 @@ export const TUIAccordion = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeItem, experienceDataArray, focusedPanel]);
+  }, [activeItem, projectsDataArray, focusedPanel]);
 
   return (
     <div className="flex gap-4 max-h-[70vh]">
-      {/* Left Panel - Experience List */}
+      {/* Left Panel - Projects List */}
       <div className="w-1/3 min-w-[300px]">
         <div className="p-2 h-full overflow-y-auto tui-scrollbar">
           <div className="text-lavender text-lg font-bold mb-4">
-            ~/Experience
+            ~/Projects
           </div>
           
           <div className="space-y-1">
-            {experienceDataArray.map((item) => (
+            {projectsDataArray.map((item) => (
               <div
                 key={item.id}
                 className={`cursor-pointer p-2 transition-all duration-200 ${
@@ -134,12 +135,12 @@ export const TUIAccordion = () => {
               >
                 <div className="flex items-center justify-between w-full">
                   <span className="font-mono text-sm flex-shrink-0">
-                    {item.period}
+                    {item.name}
                   </span>
                   <span className={`font-mono text-sm text-right ${
                     activeItem === item.id ? "text-base" : "text-green"
                   }`}>
-                    {item.independent || item.company === "black" ? "-" : item.company}
+                    {item.status}
                   </span>
                 </div>
               </div>
@@ -148,26 +149,29 @@ export const TUIAccordion = () => {
         </div>
       </div>
 
-      {/* Right Panel - Experience Details */}
+      {/* Right Panel - Project Details */}
       <div 
         className={`flex-1 ${focusedPanel === "right" ? "ring-1 ring-surface0" : ""}`}
       >
         <div ref={rightPanelRef} className="p-4 h-full overflow-y-auto tui-scrollbar">
-          {experienceDataArray
+          {projectsDataArray
             .filter((item) => item.id === activeItem)
             .map((item) => (
               <div key={item.id} className="space-y-3">
-                {/* Company Header */}
+                {/* Project Header */}
                 <div className="flex items-center gap-4">
                   <div className="text-green text-xl font-bold">
-                    {item.independent || item.company === "black" ? "-" : item.company}
+                    {item.name}
                   </div>
-                </div>
-
-                {/* Position */}
-                <div className="text-lavender text-lg font-semibold">
-                  {item.position}
-                  {item.independent && <span className="text-yellow ml-2">(Freelance)</span>}
+                  <div className={`px-2 py-1 rounded text-xs font-mono ${
+                    item.status === "completed" 
+                      ? "bg-green text-base" 
+                      : item.status === "in progress"
+                      ? "bg-yellow text-base"
+                      : "bg-red text-base"
+                  }`}>
+                    {item.status}
+                  </div>
                 </div>
 
                 {/* Description */}
@@ -175,66 +179,84 @@ export const TUIAccordion = () => {
                   {item.description}
                 </div>
 
-                {/* Functions Section */}
+                {/* Repository Link */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-teal font-mono">
                     <span className="text-green">{'>'}</span>
-                    <span>Functions</span>
+                    <span>Repository</span>
                   </div>
                   
-                  <div className="space-y-2 pl-4">
-                    {item.functions.map((func, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <span className="text-red text-sm mt-1">•</span>
-                        <p className="text-subtext0 text-sm leading-relaxed">
-                          {func}
-                        </p>
-                      </div>
-                    ))}
+                  <div className="pl-4">
+                    <a 
+                      href={item.repository} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue hover:text-sapphire underline text-sm"
+                    >
+                      <span className="nf-fa-github_alt text-pink"></span> {item.repository}
+                    </a>
                   </div>
                 </div>
 
-                {/* Achievements Section */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-peach font-mono">
-                    <span className="text-green">{'>'}</span>
-                    <span>Achievements</span>
-                  </div>
-                  
-                  <div className="space-y-2 pl-4">
-                    {item.achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <span className="text-green text-sm mt-1">✓</span>
-                        <p className="text-subtext0 text-sm leading-relaxed">
-                          {achievement}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Company Contact */}
-                {item.company_contact && (
+                {/* Demo Link */}
+                {item.demo_url && (
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-mauve font-mono">
+                    <div className="flex items-center gap-2 text-peach font-mono">
                       <span className="text-green">{'>'}</span>
-                      <span>Reference Contact</span>
+                      <span>Live Demo</span>
                     </div>
                     
-                    <div className="pl-4 space-y-1">
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-lavender font-semibold">{item.company_contact.name}</span>
-                        <span className="text-subtext1 ml-2">({item.company_contact.position})</span>
-                      </div>
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-yellow nf-md-email text-yellow"></span> {item.company_contact.email}
-                      </div>
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-green nf-md-phone text-green"></span> {item.company_contact.phone}
-                      </div>
+                    <div className="pl-4">
+                      <a 
+                        href={item.demo_url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue hover:text-sapphire underline text-sm"
+                      >
+                        <span className="nf-md-web text-sapphire"></span> {item.demo_url}
+                      </a>
                     </div>
                   </div>
                 )}
+
+                {/* Technologies Section */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-mauve font-mono">
+                    <span className="text-green">{'>'}</span>
+                    <span>Technologies</span>
+                  </div>
+                  
+                  <div className="pl-4 flex flex-wrap gap-2">
+                    {item.technologies.map((tech, index) => (
+                      <div 
+                        key={index} 
+                        className={`px-2 py-1 rounded text-xs font-mono bg-surface1 text-${tech.color} flex items-center gap-1`}
+                      >
+                        <span className={tech.icon}></span>
+                        <span>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Features Section */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-peach font-mono">
+                    <span className="text-green">{'>'}</span>
+                    <span>Key Features</span>
+                  </div>
+                  
+                  <div className="space-y-2 pl-4">
+                    {item.features.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <span className="text-green text-sm mt-1">•</span>
+                        <p className="text-subtext0 text-sm leading-relaxed">
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
         </div>

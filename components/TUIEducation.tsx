@@ -129,7 +129,7 @@ export const TUIEducation = () => {
               >
                 <div className="flex items-center justify-between w-full">
                   <span className="font-mono text-sm flex-shrink-0">
-                    [{item.id}] {item.period}
+                    {item.period}
                   </span>
                   <span className={`font-mono text-sm text-right ${
                     activeItem === item.id ? "text-base" : "text-green"
