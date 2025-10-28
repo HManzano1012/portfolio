@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import personalInfo from "@/data/personal_info.json";
 import socials from "@/data/socials.json";
 
@@ -22,13 +23,21 @@ export const PersonalInfo = () => {
       }}
     >
       <div
-        className="border-surface1 mx-auto w-32 h-32 lg:w-48 lg:h-48 mb-8 lg:mb-0"
+        className="border-surface1 mx-auto w-48 h-48 lg:w-56 lg:h-56 mb-8 lg:mb-0 overflow-hidden"
         style={{
           borderRadius: "50%",
           borderWidth: 5,
           borderStyle: "solid",
         }}
-      ></div>
+      >
+        <Image
+          src="/hmanzano1012.jpg"
+          alt="Profile Photo"
+          width={224}
+          height={224}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       <div className="pt-0 lg:pt-8">
         {personal_info.map((info) => (
