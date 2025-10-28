@@ -5,19 +5,27 @@ interface AccordionContextType {
   focusedPanel: "left" | "right";
   setFocusedPanel: (panel: "left" | "right") => void;
   resetFocusedPanel: () => void;
+  resetAccordionItems: () => void;
+  resetTrigger: number;
 }
 
 const AccordionContext = createContext<AccordionContextType | undefined>(undefined);
 
 export const AccordionProvider = ({ children }: { children: ReactNode }) => {
   const [focusedPanel, setFocusedPanel] = useState<"left" | "right">("left");
+  const [resetTrigger, setResetTrigger] = useState(0);
 
   const resetFocusedPanel = () => {
     setFocusedPanel("left");
   };
 
+  const resetAccordionItems = () => {
+    setResetTrigger(prev => prev + 1);
+    setFocusedPanel("left");
+  };
+
   return (
-    <AccordionContext.Provider value={{ focusedPanel, setFocusedPanel, resetFocusedPanel }}>
+    <AccordionContext.Provider value={{ focusedPanel, setFocusedPanel, resetFocusedPanel, resetAccordionItems, resetTrigger }}>
       {children}
     </AccordionContext.Provider>
   );

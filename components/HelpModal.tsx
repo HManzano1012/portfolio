@@ -4,16 +4,17 @@ import React, { useState, useEffect } from "react";
 export default function HelpModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedKeybind, setFocusedKeybind] = useState(0);
+  const lastKeyTimeRef = React.useRef<number>(0);
 
   // Define keybinds for navigation
   const keybinds = [
     { key: "Tab / Shift+Tab", description: "Navigate between main sections" },
-    { key: "j / k", description: "Navigate accordion items (up/down)" },
+    { key: "j / k", description: "Navigate accordion items (up/down) - throttled" },
     { key: "h / l", description: "Switch between accordion panels (left/right)" },
     { key: "Enter", description: "Select item / Open accordion" },
     { key: "Shift + T", description: "Open theme selector" },
     { key: "?", description: "Show this help" },
-    { key: "j / k", description: "Navigate themes" },
+    { key: "j / k", description: "Navigate themes (in theme selector)" },
     { key: "Enter", description: "Select theme" },
     { key: "Esc", description: "Close theme selector" },
     { key: "j / k", description: "Scroll help content" },
@@ -44,6 +45,8 @@ export default function HelpModal() {
     const handleNavigationKeyDown = (event: KeyboardEvent) => {
       if (!isOpen) return;
 
+      const now = Date.now();
+
       // Check if theme selector is open
       const themeModal = document.querySelector('[data-theme-modal]');
       if (themeModal) {
@@ -52,6 +55,13 @@ export default function HelpModal() {
 
       if (event.key === "j" || event.key === "k" || event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
+        
+        // Debounce rapid key presses
+        if (now - lastKeyTimeRef.current < 100) {
+          return;
+        }
+        lastKeyTimeRef.current = now;
+        
         if (event.key === "j" || event.key === "ArrowDown") {
           setFocusedKeybind((prev) => (prev + 1) % keybinds.length);
         } else {

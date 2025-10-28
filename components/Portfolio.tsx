@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const PortfolioContent = () => {
   const [currentActive, setCurrentActive] = useState(1);
-  const { resetFocusedPanel } = useAccordion();
+  const { resetFocusedPanel, resetAccordionItems } = useAccordion();
   const links = [
     { id: 1, text: "[1] ~/Me" },
     { id: 2, text: "[2] ~/Experience" },
@@ -18,6 +18,14 @@ const PortfolioContent = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Tab") {
+        // Check if any popup is open
+        const themeModal = document.querySelector('[data-theme-modal]');
+        const helpModal = document.querySelector('[data-help-modal]');
+        
+        if (themeModal || helpModal) {
+          return; // Don't process Tab navigation if any popup is open
+        }
+        
         event.preventDefault();
         
         if (event.shiftKey) {
@@ -34,8 +42,8 @@ const PortfolioContent = () => {
           });
         }
         
-        // Reset focused panel when changing sections
-        resetFocusedPanel();
+        // Reset focused panel and accordion items when changing sections
+        resetAccordionItems();
       }
     };
 

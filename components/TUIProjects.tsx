@@ -25,13 +25,24 @@ interface ProjectItem {
 
 export const TUIProjects = () => {
   const [activeItem, setActiveItem] = useState<string>("a");
-  const { focusedPanel, setFocusedPanel } = useAccordion();
+  const { focusedPanel, setFocusedPanel, resetTrigger } = useAccordion();
   const projectsDataArray: ProjectItem[] = projectsData;
   const rightPanelRef = React.useRef<HTMLDivElement>(null);
+  const lastKeyTimeRef = React.useRef<number>(0);
+
+  // Reset active item when resetTrigger changes
+  useEffect(() => {
+    setActiveItem("a");
+    if (rightPanelRef.current) {
+      rightPanelRef.current.scrollTop = 0;
+    }
+  }, [resetTrigger]);
 
   // Keyboard navigation for accordion
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      const now = Date.now();
+      
       // Check if theme selector is open
       const themeModal = document.querySelector('[data-theme-modal]');
       if (themeModal) {
@@ -53,6 +64,13 @@ export const TUIProjects = () => {
       
       if (event.key === "j" || event.key === "ArrowDown" || (event.ctrlKey && event.key === "n")) {
         event.preventDefault();
+        
+        // Debounce rapid key presses
+        if (now - lastKeyTimeRef.current < 100) {
+          return;
+        }
+        lastKeyTimeRef.current = now;
+        
         if (focusedPanel === "right" && rightPanelRef.current) {
           // Scroll down in the right panel
           rightPanelRef.current.scrollBy({ top: 50, behavior: 'smooth' });
@@ -69,6 +87,13 @@ export const TUIProjects = () => {
         }
       } else if (event.key === "k" || event.key === "ArrowUp" || (event.ctrlKey && event.key === "p")) {
         event.preventDefault();
+        
+        // Debounce rapid key presses
+        if (now - lastKeyTimeRef.current < 100) {
+          return;
+        }
+        lastKeyTimeRef.current = now;
+        
         if (focusedPanel === "right" && rightPanelRef.current) {
           // Scroll up in the right panel
           rightPanelRef.current.scrollBy({ top: -50, behavior: 'smooth' });
@@ -119,7 +144,7 @@ export const TUIProjects = () => {
                 className={`cursor-pointer p-2 transition-all duration-200 ${
                   activeItem === item.id
                     ? "text-base"
-                    : "hover:text-text text-subtext0"
+                    : "text-subtext0"
                 } ${
                   activeItem === item.id 
                     ? (focusedPanel === "left" ? "bg-teal" : "bg-overlay0")

@@ -6,6 +6,7 @@ export default function ThemeSwitcher() {
   const { theme, themes, changeTheme, isLoaded } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const lastKeyTimeRef = React.useRef<number>(0);
 
   const themeKeys = Object.keys(themes) as Theme[];
 
@@ -27,6 +28,8 @@ export default function ThemeSwitcher() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (!isOpen) return;
 
+      const now = Date.now();
+
       // Prevent default for navigation keys
       if (["j", "k", "Enter", "Escape"].includes(event.key)) {
         event.preventDefault();
@@ -35,10 +38,20 @@ export default function ThemeSwitcher() {
       switch (event.key) {
         case "j":
         case "ArrowDown":
+          // Debounce rapid key presses
+          if (now - lastKeyTimeRef.current < 100) {
+            return;
+          }
+          lastKeyTimeRef.current = now;
           setSelectedIndex((prev) => (prev + 1) % themeKeys.length);
           break;
         case "k":
         case "ArrowUp":
+          // Debounce rapid key presses
+          if (now - lastKeyTimeRef.current < 100) {
+            return;
+          }
+          lastKeyTimeRef.current = now;
           setSelectedIndex((prev) => (prev - 1 + themeKeys.length) % themeKeys.length);
           break;
         case "Enter":
