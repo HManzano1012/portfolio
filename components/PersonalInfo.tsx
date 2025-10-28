@@ -14,26 +14,23 @@ export const PersonalInfo = () => {
 
   return (
     <div
+      className="lg:absolute lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full lg:w-auto h-screen lg:h-auto flex flex-col justify-center items-center"
       style={{
-        position: "absolute",
-        top: "50%",
-        transform: "translateY(-50%)",
+        position: "static",
+        top: "auto",
+        transform: "none",
       }}
-      className="text-sm md:text-md lg:text-lg"
     >
       <div
-        className="border-surface1"
+        className="border-surface1 mx-auto w-32 h-32 lg:w-48 lg:h-48 mb-8 lg:mb-0"
         style={{
-          width: 200,
-          height: 200,
           borderRadius: "50%",
-          margin: "auto",
           borderWidth: 5,
           borderStyle: "solid",
         }}
       ></div>
 
-      <div style={{ paddingTop: 50 }}>
+      <div className="pt-0 lg:pt-8">
         {personal_info.map((info) => (
           <div key={info.title} className="text-text">
             <div style={styleInfoText} className={`text-${info.icon_color}`}>
@@ -44,7 +41,7 @@ export const PersonalInfo = () => {
         ))}
       </div>
 
-      <div style={{ textAlign: "center", marginTop: 50 }}>
+      <div style={{ textAlign: "center", marginTop: 30 }}>
         {personal_social_media.map((social_media) => (
           <Link
             href={social_media.value}

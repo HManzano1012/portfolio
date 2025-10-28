@@ -106,7 +106,7 @@ export default function HelpModal() {
 
           {/* Help Modal */}
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4" data-help-modal>
-            <div className="bg-base border border-lavender w-full max-w-2xl">
+            <div className="bg-base border border-lavender w-full max-w-full lg:max-w-2xl">
               {/* Header */}
               <div className="px-4 py-3 border-b border-lavender bg-base">
                 <div className="flex items-center gap-2 text-sm font-mono text-lavender">

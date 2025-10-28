@@ -128,9 +128,9 @@ export const TUIAccordion = () => {
   }, [activeItem, experienceDataArray, focusedPanel]);
 
   return (
-    <div className="flex gap-4 max-h-[70vh]">
+    <div className="flex flex-col lg:flex-row gap-4 max-h-[70vh]">
       {/* Left Panel - Experience List */}
-      <div className="w-1/3 min-w-[300px]">
+      <div className="w-full lg:w-1/3 lg:min-w-[300px]">
         <div className="p-2 h-full overflow-y-auto tui-scrollbar">
           <div className="text-lavender text-lg font-bold mb-4">
             ~/Experience

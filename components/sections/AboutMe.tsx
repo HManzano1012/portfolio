@@ -8,16 +8,19 @@ export const AboutMe = () => {
 
   return (
     <div>
+      {/* Mobile-only title */}
+      <div className="lg:hidden text-lavender text-lg font-bold mb-6 font-mono text-center">
+        ~/.about_me
+      </div>
+      
       <div className="grid grid-cols-1  p-4 xl:p-10 text-center text-sm md:text-md xl:text-lg text-subtext1">
         {about_me_text}
       </div>
-      <span
-        className={`text-sm md:text-md xl:text-lg py-4 xl-py-7 font-bold text-lavender`}
-      >
+      <div className="text-lg lg:text-sm xl:text-lg py-4 xl-py-7 font-bold text-lavender font-mono text-center lg:text-left">
         ~/Skills and Knowlegde
-      </span>
+      </div>
       <div className="grid grid-cols-1 text-sm md:text-md xl:text-lg py-4 xl-py-7 ">
-        <div className="grid grid-cols-1 my-2 xl:my-4 px-10">
+        <div className="grid grid-cols-1 my-2 xl:my-4 px-0 lg:px-10">
           {skill_knowledge.map((skill) => (
             <div key={skill.id} className="py-2">
               <label className="font-bold text-subtext0">
@@ -28,10 +31,10 @@ export const AboutMe = () => {
           ))}
         </div>
       </div>
-      <span className="text-sm md:text-md xl:text-lg py-4 xl-py-7 font-bold text-lavender">
+      <div className="text-lg lg:text-sm xl:text-lg py-4 xl-py-7 font-bold text-lavender font-mono text-center lg:text-left">
         ~/Technology
-      </span>
-      <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4  text-sm md:text-md xl:text-lg py-2 xl-py-7 ">
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-4 text-sm md:text-md xl:text-lg py-2 xl-py-7 px-4 lg:px-0">
         {technologiesData.map((technology) => (
           <div key={technology.id} className="py-1">
             <div className="text-subtext1">
