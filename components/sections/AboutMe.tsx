@@ -94,14 +94,14 @@ export const AboutMe = () => {
       </div>
       
       {/* Description text - only show on mobile after title is complete */}
-      <div className={`lg:hidden grid grid-cols-1 p-4 xl:p-10 text-center text-sm md:text-md xl:text-lg text-subtext1 transition-opacity duration-500 ${
+      <div className={`lg:hidden grid grid-cols-1 p-4 xl:p-10 text-center text-sm text-subtext1 transition-opacity duration-500 ${
         isTitleComplete ? 'opacity-100' : 'opacity-0'
       }`}>
         {about_me_text}
       </div>
       
       {/* Desktop description - always visible */}
-      <div className="hidden lg:grid grid-cols-1 p-4 xl:p-10 text-center text-sm md:text-md xl:text-lg text-subtext1">
+      <div className="hidden lg:grid grid-cols-1 p-4 xl:p-10 text-center text-sm text-subtext1">
         {about_me_text}
       </div>
       
@@ -119,30 +119,30 @@ export const AboutMe = () => {
       </div>
       
       {/* Skills content - only show on mobile after skills title is complete */}
-      <div className={`lg:hidden grid grid-cols-1 text-sm md:text-md xl:text-lg py-4 xl-py-7 transition-opacity duration-500 ${
+      <div className={`lg:hidden grid grid-cols-1 text-sm md:text-md xl:text-lg py-2 transition-opacity duration-500 ${
         isSkillsTitleComplete ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="grid grid-cols-1 my-2 xl:my-4 px-0 lg:px-10">
+        <div className="grid grid-cols-1 my-1 xl:my-2 px-0 lg:px-10">
           {skill_knowledge.map((skill) => (
-            <div key={skill.id} className="py-2">
-              <label className="font-bold text-subtext0">
+            <div key={skill.id} className="py-1">
+              <label className="font-bold text-sm text-subtext0">
                 &gt; {skill.label}
               </label>
-              <p className="px-5 text-md  text-subtext1">{skill.description}</p>
+              <p className="px-5 text-sm  text-subtext1">{skill.description}</p>
             </div>
           ))}
         </div>
       </div>
       
       {/* Desktop Skills content - always visible */}
-      <div className="hidden lg:grid grid-cols-1 text-sm md:text-md xl:text-lg py-4 xl-py-7">
-        <div className="grid grid-cols-1 my-2 xl:my-4 px-0 lg:px-10">
+      <div className="hidden lg:grid grid-cols-1 text-sm md:text-md xl:text-lg py-2">
+        <div className="grid grid-cols-1 my-1 xl:my-2 px-0 lg:px-10">
           {skill_knowledge.map((skill) => (
-            <div key={skill.id} className="py-2">
-              <label className="font-bold text-subtext0">
+            <div key={skill.id} className="py-1">
+              <label className="font-bold text-sm text-subtext0">
                 &gt; {skill.label}
               </label>
-              <p className="px-5 text-md  text-subtext1">{skill.description}</p>
+              <p className="px-5 text-sm  text-subtext1">{skill.description}</p>
             </div>
           ))}
         </div>
@@ -167,7 +167,7 @@ export const AboutMe = () => {
       }`}>
         {technologiesData.map((technology) => (
           <div key={technology.id} className="py-1">
-            <div className="text-subtext1">
+            <div className="text-subtext1 text-sm">
               <span
                 className={`${technology.icon}  text-${technology.color}`}
               ></span>
@@ -182,7 +182,7 @@ export const AboutMe = () => {
       <div className="hidden lg:grid grid-cols-2 md:grid-cols-4 xl:grid-cols-4 text-sm md:text-md xl:text-lg py-2 xl-py-7 px-4 lg:px-0">
         {technologiesData.map((technology) => (
           <div key={technology.id} className="py-1">
-            <div className="text-subtext1">
+            <div className="text-subtext1 text-sm">
               <span
                 className={`${technology.icon}  text-${technology.color}`}
               ></span>

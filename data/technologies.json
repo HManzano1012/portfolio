@@ -89,5 +89,26 @@
     "icon": "nf-md-bootstrap",
     "level": "2",
     "color": "mauve"
+  },
+  {
+    "id": 14,
+    "name": "Docker",
+    "icon": "nf-dev-docker",
+    "level": "2",
+    "color": "blue"
+  },
+  {
+    "id": 15,
+    "name": "Google Cloud",
+    "icon": "nf-md-google_cloud",
+    "level": "2",
+    "color": "blue"
+  },
+  {
+    "id": 16,
+    "name": "Django",
+    "icon": "nf-dev-django",
+    "level": "2",
+    "color": "red"
   }
 ]

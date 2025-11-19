@@ -1,15 +1,26 @@
 {
-  "about_me_text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. ",
+  "about_me_text": "I am a software developer specialized in back-end and full-stack development, with experience creating and maintaining custom systems that optimize performance and scalability. I have worked across the entire project lifecycle, from planning to production, managing APIs, databases, and servers in both local and cloud environments. I have experience with Google Cloud Platform, Docker, Bitbucket Pipelines, and frameworks such as CodeIgniter, Flask, and Laravel. I have also technically led teams, promoting best practices and organization to meet business objectives. My strengths include solving complex problems, working collaboratively, and quickly adapting to new technologies.",
   "skills": [
     {
       "id": 1,
-      "label": "System design",
-      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form"
+      "label": "Database Management & Optimization",
+      "description": "Advanced experience with schema design (SQL/NoSQL) and query optimization for high performance. Knowledge in handling databases for production and distributed environments."
     },
     {
       "id": 2,
-      "label": "Database design",
-      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form"
+      "label": "Database API Development & Integration",
+      "description": "Development and management of robust and secure APIs. Experience in integrating third-party services and managing request traffic."
+    },
+    {
+      "id": 3,
+      "label": "Cloud & Containerization",
+      "description": "Experience with Google Cloud Platform services and Docker for deploying and managing applications in scalable environments."
+    },
+    {
+      "id": 4,
+      "label": "DevOps & Deployment Pipelines",
+      "description": "Experience configuring and maintaining CI/CD pipelines and using Docker to ensure consistency and efficient deployment in development and production environments."
     }
   ]
 }
+

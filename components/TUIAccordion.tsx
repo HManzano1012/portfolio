@@ -220,26 +220,30 @@ export const TUIAccordion = () => {
                 </div>
 
                 {/* Achievements Section */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-peach font-mono">
-                    <span className="text-green">{'>'}</span>
-                    <span>Achievements</span>
+                {item.achievements && item.achievements.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-peach font-mono">
+                      <span className="text-green">{'>'}</span>
+                      <span>Achievements</span>
+                    </div>
+                    
+                    <div className="space-y-2 pl-4">
+                      {item.achievements.map((achievement, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <span className="text-green text-sm mt-1">✓</span>
+                          <p className="text-subtext0 text-sm leading-relaxed">
+                            {achievement}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  
-                  <div className="space-y-2 pl-4">
-                    {item.achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <span className="text-green text-sm mt-1">✓</span>
-                        <p className="text-subtext0 text-sm leading-relaxed">
-                          {achievement}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                )}
 
                 {/* Company Contact */}
-                {item.company_contact && (
+                {item.company_contact && 
+                 item.company_contact.name && 
+                 (item.company_contact.email || item.company_contact.phone) && (
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-mauve font-mono">
                       <span className="text-green">{'>'}</span>
@@ -247,16 +251,24 @@ export const TUIAccordion = () => {
                     </div>
                     
                     <div className="pl-4 space-y-1">
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-lavender font-semibold">{item.company_contact.name}</span>
-                        <span className="text-subtext1 ml-2">({item.company_contact.position})</span>
-                      </div>
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-yellow nf-md-email text-yellow"></span> {item.company_contact.email}
-                      </div>
-                      <div className="text-subtext0 text-sm">
-                        <span className="text-green nf-md-phone text-green"></span> {item.company_contact.phone}
-                      </div>
+                      {item.company_contact.name && (
+                        <div className="text-subtext0 text-sm">
+                          <span className="text-lavender font-semibold">{item.company_contact.name}</span>
+                          {item.company_contact.position && (
+                            <span className="text-subtext1 ml-2">({item.company_contact.position})</span>
+                          )}
+                        </div>
+                      )}
+                      {item.company_contact.email && (
+                        <div className="text-subtext0 text-sm">
+                          <span className="text-yellow nf-md-email text-yellow"></span> {item.company_contact.email}
+                        </div>
+                      )}
+                      {item.company_contact.phone && (
+                        <div className="text-subtext0 text-sm">
+                          <span className="text-green nf-md-phone text-green"></span> {item.company_contact.phone}
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}

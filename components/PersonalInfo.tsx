@@ -39,10 +39,10 @@ export const PersonalInfo = () => {
         />
       </div>
 
-      <div className="pt-0 lg:pt-8">
+      <div className="pt-0 lg:pt-8 text-center lg:text-left">
         {personal_info.map((info) => (
           <div key={info.title} className="text-text">
-            <div style={styleInfoText} className={`text-${info.icon_color}`}>
+            <div style={styleInfoText} className={`hidden lg:inline-block text-${info.icon_color}`}>
               <span className={`${info.icon} text-${info.icon_color}`}></span>
             </div>
             {info.value}

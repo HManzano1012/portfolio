@@ -27,6 +27,12 @@ body {
   font-weight: 600;
 }
 
+@media (min-width: 1024px) {
+  body {
+    font-size: 0.875rem; /* 14px - reduces from default 16px */
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
