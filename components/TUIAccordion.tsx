@@ -13,10 +13,10 @@ interface ExperienceItem {
   active: boolean;
   independent: boolean;
   company_contact?: {
-    name: string;
-    position: string;
-    email: string;
-    phone: string;
+    name?: string;
+    position?: string;
+    email?: string;
+    phone?: string;
   };
   functions: string[];
   achievements: string[];
